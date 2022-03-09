@@ -44,7 +44,12 @@ namespace APIAgenda
 
             app.UseAuthorization();
 
-            app.UseCors();
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+
+            app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints =>
             {
